@@ -10,6 +10,8 @@ These can be run by specifying `--bench-name` when running the `gen_*.py` comman
 
 We have also added the ability to evaluate with gpt-4-turbo by simply duplicating all the reference answers that existed for gpt-4-turbo as well.
 
+# How to use
+
 ```bash
 OPENAI_API_KEY=<YOUR_API_KEY> python gen_api_answer.py --bench-name ru_mt_bench --model gpt-3.5-turbo --parallel 4
 OPENAI_API_KEY=<YOUR_API_KEY> python gen_judgment.py --bench-name ru_mt_bench --model-list gpt-3.5-turbo --judge-model gpt-4-turbo --mode single --parallel 4
