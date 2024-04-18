@@ -15,7 +15,11 @@ OPENAI_API_KEY=<YOUR_API_KEY> python gen_api_answer.py --bench-name ru_mt_bench 
 OPENAI_API_KEY=<YOUR_API_KEY> python gen_judgment.py --bench-name ru_mt_bench --model-list gpt-3.5-turbo --judge-model gpt-4-turbo --mode single --parallel 4
 ```
 
+Please refer to the original documentation for how to run models locally etc.
+
 I would really really really really appreciate if someone would submit a pull request adding other languages. As long as a native speaker has checked the contents of the questions and reference answers, I would be happy to add them to this repository.
+
+# ↓ ORIGINAL REPO DOCUMENTATION ↓
 
 # LLM Judge
 | [Paper](https://arxiv.org/abs/2306.05685) | [Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) |
