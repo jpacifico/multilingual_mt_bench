@@ -35,6 +35,7 @@ I would really really really really appreciate if someone would submit a pull re
 {"question_id": 82, "category": "CATEGORY_NAME", "turns": ["FIRST TURN OF CONVERSATION", "SECOND TURN OF CONVERSATION"]}
 ```
 N.B. Please keep the `question_id` and `category` consistent with the original English version.
+
 7. In the `fastchat/llm_judge/data/xx_mt_bench` directory, add a new folder called `reference answer`.
 8. Add the reference answers under the name `gpt-4.jsonl` in the following format:
 ```jsonl
@@ -42,7 +43,10 @@ N.B. Please keep the `question_id` and `category` consistent with the original E
 {"index":102,"category":"CATEGORY_NAME","choices":[{"index":0,"turns":["REFERENCE ANSWER TO FIRST TURN PROMPT", "REFERENCE ANSWER TO SECOND TURN PROMPT"]}]}
 ```
 Again keeping the `question_id` and `category` consistent with the original English version.
+
 9. Finally, commit these changes and submit a pull request to merge into this repo.
+
+If you are not familiar with coding or using git, then feel free to just submit an issue (from the issue tab near the top) and if you send me the translations your have made, I would be happy to fix them up into the correct format.
 
 With your co-operation, we can assess more languages and make LLMs more useful together!
 
