@@ -17,7 +17,34 @@ OPENAI_API_KEY=<YOUR_API_KEY> python gen_judgment.py --bench-name ru_mt_bench --
 
 Please refer to the original documentation for how to run models locally etc.
 
+# Adding more languages
+
 I would really really really really appreciate if someone would submit a pull request adding other languages. As long as a native speaker has checked the contents of the questions and reference answers, I would be happy to add them to this repository.
+
+### How to contribute
+
+1. Translate (either manually or by using a high quality translation service such as GPT-4 or Claude 3 Opus) both turns of the original questions of the [English MT-Bench dataset](https://github.com/lm-sys/FastChat/blob/f22f2194c9152a25d2987e5118206e3bbb9efd5e/fastchat/llm_judge/data/mt_bench/question.jsonl).
+3. Manually check these translations using at least one native speaker of the target language. Fix any strange translations or unnatural wordings.
+4. Generate reference answers for the math, reasoning, and coding questions by either manually writing them or by inputting them into a high quality LLM such as GPT-4 or Claude 3 Opus. Note that you **DO NOT NEED** to generate answers for all questions, only the math, reasoning, and coding questions.
+5. Manually check these answers, making sure that they sound natural and fix any factual or logical inaccuracies from the answers.
+6. Fork this repository.
+7. Create a new folder in the `fastchat/llm_judge/data` directory named `xx_mt_bench`, where xx is the language code of your language. For example, an Arabic translation would be called `ar_mt_bench`.
+8. In this folder, add a file called `question.jsonl` that has the questions in a JSONL file format in the following style:
+```jsonl
+{"question_id": 81, "category": "CATEGORY_NAME", "turns": ["FIRST TURN OF CONVERSATION", "SECOND TURN OF CONVERSATION"]}
+{"question_id": 82, "category": "CATEGORY_NAME", "turns": ["FIRST TURN OF CONVERSATION", "SECOND TURN OF CONVERSATION"]}
+```
+N.B. Please keep the `question_id` and `category` consistent with the original English version.
+7. In the `fastchat/llm_judge/data/xx_mt_bench` directory, add a new folder called `reference answer`.
+8. Add the reference answers under the name `gpt-4.jsonl` in the following format:
+```jsonl
+{"index":101,"category":"CATEGORY_NAME","choices":[{"index":0,"turns":["REFERENCE ANSWER TO FIRST TURN PROMPT", "REFERENCE ANSWER TO SECOND TURN PROMPT"]}]}
+{"index":102,"category":"CATEGORY_NAME","choices":[{"index":0,"turns":["REFERENCE ANSWER TO FIRST TURN PROMPT", "REFERENCE ANSWER TO SECOND TURN PROMPT"]}]}
+```
+Again keeping the `question_id` and `category` consistent with the original English version.
+9. Finally, commit these changes and submit a pull request to merge into this repo.
+
+With your co-operation, we can assess more languages and make LLMs more useful together!
 
 # ↓ ORIGINAL REPO DOCUMENTATION ↓
 
