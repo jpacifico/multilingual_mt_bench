@@ -5,8 +5,17 @@ All of the following datasets have been translated using machine learning before
 * [German MT-Bench](https://huggingface.co/datasets/VAGOsolutions/MT-Bench-TrueGerman) [source](https://github.com/mayflower/FastEval/blob/main/data/mt-bench/questions_de.json)
 * [Japanese MT-Bench](https://github.com/Stability-AI/FastChat/tree/jp-stable/fastchat/llm_judge/data/japanese_mt_bench)
 * [Chinese (simplified) MT-Bench](https://huggingface.co/datasets/GeneZC/MT-Bench-ZH/blob/main/data/mt_bench_zh/question.jsonl)
-
+  
 These can be run by specifying `--bench-name` when running the `gen_*.py` commands. The values for the above languages, respectively, are `fr_mt_bench`,  `ru_mt_bench`, `de_mt_bench`, `ja_mt_bench`, and `zh_mt_bench`. To run the original English benchmark, use ` mt_bench`.
+
+We have also added the ability to evaluate with gpt-4-turbo by simply duplicating all the reference answers that existed for gpt-4-turbo as well.
+
+```bash
+OPENAI_API_KEY=<YOUR_API_KEY> python gen_api_answer.py --bench-name ru_mt_bench --model gpt-3.5-turbo --parallel 4
+OPENAI_API_KEY=<YOUR_API_KEY> python gen_judgment.py --bench-name ru_mt_bench --model-list gpt-3.5-turbo --judge-model gpt-4-turbo --mode single --parallel 4
+```
+
+I would really really really really appreciate if someone would submit a pull request adding other languages. As long as a native speaker has checked the contents of the questions and reference answers, I would be happy to add them to this repository.
 
 # LLM Judge
 | [Paper](https://arxiv.org/abs/2306.05685) | [Leaderboard](https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard) |
