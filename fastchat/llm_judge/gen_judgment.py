@@ -207,6 +207,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--first-n", type=int, help="A debug option. Only run the first `n` judgments."
     )
+    parser.add_argument(
+      '--skip_confirm', action='store_true'
+    )
     args = parser.parse_args()
 
     question_file = f"data/{args.bench_name}/question.jsonl"
@@ -298,10 +301,11 @@ if __name__ == "__main__":
     match_stat["total_num_matches"] = len(matches)
     match_stat["output_path"] = output_file
 
-    # Show match stats and prompt enter to continue
-    print("Stats:")
-    print(json.dumps(match_stat, indent=4))
-    input("Press Enter to confirm...")
+    if not args.skip_confirm:
+        # Show match stats and prompt enter to continue
+        print("Stats:")
+        print(json.dumps(match_stat, indent=4))
+        input("Press Enter to confirm...")
 
     # Play matches
     if args.parallel == 1:
