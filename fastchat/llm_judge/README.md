@@ -1,14 +1,17 @@
 # What has been added to the multilingual fork?
 All of the following datasets have been translated using machine learning before being checked by a native speaker of that language. References answers are added where available. When reference answers are unavailable, math, reasoning and coding questions are removed.
-* [French MT-Bench](https://huggingface.co/datasets/bofenghuang/mt-bench-french)
-* [Russian MT-Bench](https://huggingface.co/datasets/dim/mt_bench_ru) (no reference answers)
 * [German MT-Bench](https://huggingface.co/datasets/VAGOsolutions/MT-Bench-TrueGerman) [source](https://github.com/mayflower/FastEval/blob/main/data/mt-bench/questions_de.json)
+* [French MT-Bench](https://huggingface.co/datasets/bofenghuang/mt-bench-french)
+* [Indonesian MT-Bench](https://huggingface.co/datasets/lightblue/mt_bench_indonesian)
 * [Japanese MT-Bench](https://github.com/Stability-AI/FastChat/tree/jp-stable/fastchat/llm_judge/data/japanese_mt_bench)
+* [Polish MT-Bench](https://huggingface.co/datasets/lightblue/mt_bench_polish)
+* [Russian MT-Bench](https://huggingface.co/datasets/dim/mt_bench_ru) (no reference answers)
+* [Vietnamese MT-Bench](https://huggingface.co/datasets/lightblue/mt_bench_vietnamese)
 * [Chinese (simplified) MT-Bench](https://huggingface.co/datasets/GeneZC/MT-Bench-ZH/blob/main/data/mt_bench_zh/question.jsonl)
-  
-These can be run by specifying `--bench-name` when running the `gen_*.py` commands. The values for the above languages, respectively, are `fr_mt_bench`,  `ru_mt_bench`, `de_mt_bench`, `ja_mt_bench`, and `zh_mt_bench`. To run the original English benchmark, use ` mt_bench`.
 
-We have also added the ability to evaluate with gpt-4-turbo by simply duplicating all the reference answers that existed for gpt-4-turbo as well.
+These can be run by specifying `--bench-name` when running the `gen_*.py` commands. The values for the above languages, respectively, are `de_mt_bench`, `fr_mt_bench`, `id_mt_bench`, `ja_mt_bench`, `pl_mt_bench`, `ru_mt_bench`, `vi_mt_bench`, and `zh_mt_bench`. To run the original English benchmark, use ` mt_bench`.
+
+We have also added the ability to evaluate with gpt-4-turbo and gpt-4o by simply duplicating all the reference answers that existed for gpt-4.
 
 # How to use
 
