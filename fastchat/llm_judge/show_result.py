@@ -7,6 +7,7 @@ import pandas as pd
 
 
 def display_result_single(args):
+    valid_benchmarks = ["mt_bench", "fr_mt_bench", "de_mt_bench", "id_mt_bench", "ja_mt_bench", "pl_mt_bench","ru_mt_bench", "vi_mt_bench","zh_mt_bench"]
     if args.input_file is None:
         input_file = (
             f"data/{args.bench_name}/model_judgment/{args.judge_model}_single.jsonl"
@@ -26,7 +27,7 @@ def display_result_single(args):
     df_1 = df[df["turn"] == 1].groupby(["model", "turn"]).mean()
     print(df_1.sort_values(by="score", ascending=False))
 
-    if args.bench_name == "mt_bench":
+    if args.bench_name in valid_benchmarks:
         print("\n########## Second turn ##########")
         df_2 = df[df["turn"] == 2].groupby(["model", "turn"]).mean()
         print(df_2.sort_values(by="score", ascending=False))
